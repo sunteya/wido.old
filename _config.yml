@@ -1,0 +1,6 @@
+# Jekyll
+source: source
+destination: public
+plugins: plugins
+markdown: kramdown
+
