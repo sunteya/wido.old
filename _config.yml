@@ -4,3 +4,5 @@ destination: public
 plugins: plugins
 markdown: kramdown
 
+# wido.me
+permalink: "/:categories/:title/"
