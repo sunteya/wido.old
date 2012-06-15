@@ -6,3 +6,11 @@ markdown: kramdown
 
 # wido.me
 permalink: "/:categories/:title/"
+
+# plugins
+bundles:
+  Develop: ruby rails server linux
+  iOS: ios cydia iphone ipad
+  Mac: mac lion -ruby -rails
+  GFW: gfw
+  

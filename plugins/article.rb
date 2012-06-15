@@ -24,7 +24,6 @@ module Jekyll
             self.posts << article
             # article.categories.each { |c| self.categories[c] << article }
             article.tags.each { |c| self.tags[c] << article }
-            binding.pry
             article.attachments.each { |attach| self.static_files << attach }
           end
         end
