@@ -3,14 +3,20 @@ source: source
 destination: public
 plugins: plugins
 markdown: kramdown
+paginate: 5
 
 # wido.me
 permalink: "/:categories/:title/"
 
 # plugins
 bundles:
-  Develop: ruby rails server linux
-  iOS: ios cydia iphone ipad
-  Mac: mac lion -ruby -rails
-  GFW: gfw
-  
+  Develop:
+    - any: ruby rails server linux java
+  iOS:
+    - any: ios cydia iphone ipad
+  Mac: 
+    - any: mac lion
+    - not: ruby rails
+  GFW:
+    - any: gfw
+
