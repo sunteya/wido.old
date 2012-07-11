@@ -5,8 +5,20 @@ plugins: plugins
 markdown: kramdown
 paginate: 5
 
-# wido.me
+# ====== wido.me ======
+# octopress
+title: "{ wido } .me"
 permalink: "/:categories/:title/"
+subscribe_rss: /atom.xml
+
+excerpt_link: "阅读全部 &rarr;"
+default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+
+disqus_short_name: wido
+disqus_show_comment_count: false
+
+google_analytics_tracking_id: UA-27596203-1
+
 
 # plugins
 bundles:

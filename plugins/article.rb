@@ -56,7 +56,7 @@ module Jekyll
       common = File.join(base, "_data.yml")
       if File.exist?(common)
         common_data = YAML.load(File.read(common))
-        self.data.deep_merge!(common_data)
+        self.data = common_data.deep_merge(self.data)
       end
     end
     
@@ -89,6 +89,12 @@ module Jekyll
       self.folder = File.dirname(name) if is_folder
     rescue ArgumentError
       raise FatalException.new("Post #{name} does not have a valid date.")
+    end
+
+    def transform
+      super
+      final_post_url = "#{@site.config["root"]}/#{self.url}".gsub("//", "/").sub(/\/$/, "")
+      self.content.gsub!('{POST_URL}', final_post_url)
     end
   end
   
