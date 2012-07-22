@@ -7,6 +7,7 @@ paginate: 5
 
 # ====== wido.me ======
 # octopress
+url: https://wido.me
 title: "{ wido } .me"
 permalink: "/:categories/:title/"
 simple_search: http://google.com/search
