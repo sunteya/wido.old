@@ -1,5 +1,3 @@
-# Root2 = 
-
 class Jekyll::Site
 
   def process_with_load_extra_config

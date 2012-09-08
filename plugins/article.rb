@@ -3,7 +3,6 @@ require "pathname"
 module Jekyll
   
   class Site
-    
     def read_directories_with_articles(dir = "")
       self.load_articles(dir)
       self.read_directories_without_articles(dir)
@@ -39,25 +38,39 @@ module Jekyll
   class Article < Post
     MATCHER = %r|^(.+/)*(\d+-\d+-\d+)-([^/]*)(/index)?(\.[^.]+)$|
     def self.valid?(file)
+      puts file
       file =~ MATCHER
     end
     
-    attr_accessor :folder
+    
+    attr_accessor :folder, :source
     
     def initialize(site, source, dir, name)
+      self.source = source
       super(site, source, dir, name)
+      
       self.categories = [ self.data['author'] ]
+    end
+    
+    def load_default_data(base, name)
+      path = File.join(base, name)
+      default_data = {}
+      while (path = File.dirname(path)) =~ /^#{self.source}/ do
+        data_path = File.join(path, "_data.yml")
+        if File.exist?(data_path)
+          data = YAML.load(File.read(data_path))
+          default_data = data.deep_merge(default_data)
+        end
+      end
+      
+      default_data
     end
     
     def read_yaml(base, name)
       base.sub!("/_posts", "/_articles")
       super(base, name)
-      
-      common = File.join(base, "_data.yml")
-      if File.exist?(common)
-        common_data = YAML.load(File.read(common))
-        self.data = common_data.deep_merge(self.data)
-      end
+      default_data = self.load_default_data(base, name)
+      self.data = default_data.deep_merge(self.data)
     end
     
     def folder?
