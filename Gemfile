@@ -1,8 +1,18 @@
 gem "jekyll", "~> 0.11.2"
-gem "coderay_bash"
-gem "activesupport"
 
+gem "activesupport"
 gem "pry-nav"
 
-gem "thin"
-gem "rack-contrib"
+gem "coderay_bash"
+gem "compass"
+
+group :development do
+  gem "thin"
+  gem "rack-contrib"
+end
+
+group :octopress do
+  gem "pygments.rb"
+  gem "haml"
+  gem "rubypants"
+end
