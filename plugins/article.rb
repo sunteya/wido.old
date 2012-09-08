@@ -38,7 +38,6 @@ module Jekyll
   class Article < Post
     MATCHER = %r|^(.+/)*(\d+-\d+-\d+)-([^/]*)(/index)?(\.[^.]+)$|
     def self.valid?(file)
-      puts file
       file =~ MATCHER
     end
     
