@@ -1,1 +1,26 @@
-{% include custom/header.html %}
+<div class="navbar _navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			{% include custom/brand.html %}
+			
+			<div class="nav-collapse collapse">
+				{% include custom/navigation.html %}
+				
+				<ul class="nav pull-right" data-subscription="rss{% if site.subscribe_email %} email{% endif %}">
+					<li><a href="{{ site.subscribe_rss }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+					{% if site.subscribe_email %}
+					<li><a href="{{ site.subscribe_email }}" rel="subscribe-email" title="subscribe via email">Email</a></li>
+					{% endif %}
+				</ul>
+
+				
+				{% if site.simple_search %}
+				<form class="navbar-search pull-right" action="{{ site.simple_search }}" method="get">
+					<input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+					<input type="text" name="q" results="0" placeholder="Search"/>
+				</form>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,131 @@
+article {
+	font-size: 17px;
+	line-height: 1.5;
+	overflow: hidden;
+	word-break: break-all;
+	
+	h2, h3, h4, h5, h6 {
+		line-height: inherit;
+		margin: 1.2em 0 0.5em 0;
+	}
+	
+	h2 { font-size: 140%; }
+	h3 { font-size: 120%; }
+	h4 { font-size: 100%; }
+	h5 { font-size: 100%; }
+	h6 { font-size: 100%; }
+	
+	li {
+		line-height: inherit;
+	}
+	
+	p {
+		margin: 0.4em 0;
+	}
+	
+	p + p {
+		margin-top: 1em;
+	}
+	
+	p, li {
+		> code {
+			color: inherit;
+			// white-space: nowrap;
+			font-size: 0.74em;
+			padding: 0.12em 0.5em;
+			margin-top: -0.1em;
+		}
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		code {
+			// white-space: nowrap;
+			font-weight: bold;
+			font-size: inherit;
+			color: inherit;
+			padding: 0;
+			margin: 0;
+			border: none;
+			background-color: transparent;
+		}
+	}
+	
+	pre {
+		padding: 0.5em 1em;
+		font-size: 60%;
+		overflow-x: auto;
+		word-wrap: normal;
+		// word-break: normal;
+		
+		code {
+			white-space: pre;
+		}
+	}
+	
+	> header {
+		position: relative;
+		padding-top: 1.7em;
+		margin-bottom: 1.5em;
+		
+		h1, p {
+			margin: 0;
+		}
+		
+		time {
+			color: #aaa;
+		}
+		
+		.meta {
+			text-transform: uppercase;
+			position: absolute;
+			top: 0;
+			
+			.author {
+				font-size: 60%;
+				margin-left: 0.5em;
+				
+				a {
+					margin-left: 0.3em;
+				}
+			}
+		}
+		
+		.tags {
+			margin-top: 0.2em;
+			
+			.label {
+				background-color: #aaa;
+				opacity: 0.8;
+				
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	
+	> footer {
+		margin-top: 2em;
+		
+		.meta {
+			margin: 1em 0;
+		}
+	}
+	
+	.tips {
+		@extend .alert;
+		@extend .alert-block;
+		@extend .alert-info;
+	}
+	
+	.more {
+		@extend .btn;
+		background-color: #F4F4F4;
+		background-image: none;
+		opacity: 0.85;
+		
+		&:hover {
+			opacity: 1;
+		}
+	}
+}

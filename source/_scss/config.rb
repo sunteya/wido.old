@@ -1,5 +1,4 @@
 # Require any additional compass plugins here.
-project_type = :stand_alone
 
 # Publishing paths
 http_path = "/"
@@ -12,5 +11,5 @@ sass_dir = "."
 images_dir = "../images"
 fonts_dir = "../fonts"
 
-line_comments = false
+line_comments = true
 output_style = :compressed

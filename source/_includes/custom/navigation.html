@@ -1,6 +1,5 @@
-<ul class="main-navigation">
-  <li><a href="{{ root_url }}/">Blog</a></li>
-  {% for bundle in site.bundles %}
-  <li><a href="{{ root_url }}{{ bundle | first | bundle_url }}">{{ bundle | first }}</a></li>
-  {% endfor %}
+<ul class="nav">
+	{% for bundle in site.bundles %}
+	<li><a href="{{ root_url }}{{ bundle | first | bundle_url }}">{{ bundle | first }}</a></li>
+	{% endfor %}
 </ul>

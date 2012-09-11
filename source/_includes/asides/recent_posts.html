@@ -1,10 +1,10 @@
 <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    {% for post in site.posts limit: site.recent_posts %}
-      <li class="post">
-        <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+	<h3>Recent Posts</h3>
+	<ul id="recent_posts" class="nav nav-tabs nav-stacked">
+		{% for post in site.posts limit: site.recent_posts %}
+			<li class="post">
+				<a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
 </section>
