@@ -1,4 +1,5 @@
 require "pathname"
+require "nokogiri"
 
 module Jekyll
   
@@ -105,8 +106,33 @@ module Jekyll
 
     def transform
       super
+      self.transform_final_url!
+      doc = Nokogiri::HTML::DocumentFragment.parse(self.content)
+      self.transform_all_code_block(doc)
+      self.content = doc.to_html
+    end
+    
+    def transform_final_url!
       final_post_url = "#{@site.config["root"]}/#{self.url}".gsub("//", "/").sub(/\/$/, "")
       self.content.gsub!('{POST_URL}', final_post_url)
+    end
+    
+    include HighlightCode
+    def transform_all_code_block(doc)
+      doc.css("code[class^=language]").each do |code|
+        transform_code_block(code)
+      end
+      doc.css("pre[lang] > code").each do |code|
+        transform_code_block(code)
+      end
+    end
+    
+    def transform_code_block(code)
+      pre = code.parent
+      lang = pre["lang"]
+      code_output = highlight(code.content, lang)
+      code_doc = Nokogiri::HTML::DocumentFragment.parse(code_output)
+      pre.replace code_doc.children
     end
   end
   

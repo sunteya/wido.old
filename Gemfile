@@ -5,6 +5,8 @@ gem "pry-nav"
 
 gem "coderay_bash"
 gem "compass"
+gem "kramdown", "~> 0.14.0"
+gem "nokogiri"
 
 
 group :octopress do
