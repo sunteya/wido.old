@@ -2,8 +2,9 @@
 source: source
 destination: public
 plugins: plugins
-markdown: kramdown
+markdown: lm2doc
 paginate: 5
+
 
 # ====== wido.me ======
 # octopress

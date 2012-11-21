@@ -108,7 +108,7 @@ module Jekyll
       super
       self.transform_final_url!
       doc = Nokogiri::HTML::DocumentFragment.parse(self.content)
-      self.transform_all_code_block(doc)
+      # self.transform_all_code_block(doc)
       self.content = doc.to_html
     end
     

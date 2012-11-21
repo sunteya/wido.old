@@ -1,13 +1,14 @@
 gem "jekyll", "~> 0.11.2"
 
-gem "activesupport"
-gem "pry-nav"
-
-gem "coderay_bash"
+gem "activesupport", "~> 3.2.9"
 gem "compass"
-gem "kramdown", "~> 0.14.0"
 gem "nokogiri"
 
+gem "lm2doc", "~> 0.0.2"
+# gem "coderay_bash"
+
+gem "pry-nav"
+gem "rake"
 
 group :octopress do
   gem "pygments.rb"
