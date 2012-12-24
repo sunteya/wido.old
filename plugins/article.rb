@@ -115,6 +115,7 @@ module Jekyll
     def transform_final_url!
       final_post_url = "#{@site.config["root"]}/#{self.url}".gsub("//", "/").sub(/\/$/, "")
       self.content.gsub!('{POST_URL}', final_post_url)
+      self.content.gsub!('%7BPOST_URL%7D', final_post_url)
     end
     
     include HighlightCode
